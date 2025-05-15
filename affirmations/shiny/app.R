@@ -1,7 +1,7 @@
 library(shiny)
 
 # Load the data from the external R file
-source("R/data_affirmations.R")  # Assuming this is the correct path
+source("R/data_affirmations.R")
 
 # Define UI
 ui <- fluidPage(
@@ -100,7 +100,7 @@ server <- function(input, output, session) {
       return(
         div(class = "fade-enter fade-enter-active content",
             div(class = "container",
-                h2("Your Personalized Affirmation - because you deserve it"),
+                h2("✨Your Personalized Affirmation - because you deserve it✨"),
                 actionButton("next_btn", "Next", class = "btn")
             )
         )
@@ -111,7 +111,7 @@ server <- function(input, output, session) {
       return(
         div(class = "fade-enter fade-enter-active full-center",
             div(class = "container",
-                h3("Answer some questions for us to get to know you better!"),
+                h3("Answer some questions for us to get to know you better!🩷"),
                 lapply(selected_questions(), function(q) {
                   q_id <- gsub(" ", "_", q)
                   div(
