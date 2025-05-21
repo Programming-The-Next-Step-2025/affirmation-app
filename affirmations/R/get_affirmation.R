@@ -10,3 +10,4 @@ get_affirmation <- function() {
   shiny::runApp(app_dir, display.mode = "normal")
 }
 
+
