@@ -1,8 +1,5 @@
 library(shiny)
 
-# Load the data from the external R file
-source("R/data_affirmations.R")
-
 # Define UI
 ui <- fluidPage(
 
