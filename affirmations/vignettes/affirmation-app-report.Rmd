@@ -1,0 +1,22 @@
+---
+title: "Affirmation App Report"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Affirmation App Report}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+The affirmations R package was created for the Programming the Next Step course. This package offers a Shiny web application that classifies users into fun personality types based on pop-culture yes/no questions and provides randomized affirmations tailored to their type.
+
+Package Overview:
+The goal of the affirmations package is to provide an interactive personality quiz – users answer themed yes/no questions.Currently, the app includes the following personality types:Softie, Brat Summer Girl, Hyperfixated Internet Nerd, Millennial Core, Radical Righty. Each personality type has a bank of 10–15 affirmations and 5 specific yes/no classification questions. 
+```{r setup}
+library(affirmations)
+```
