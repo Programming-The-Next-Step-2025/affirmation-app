@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^shiny$
 
+^doc$
+^Meta$
