@@ -26,15 +26,18 @@ ui <- fluidPage(
       letter-spacing: 2px;
     }
     .btn {
-      background-color: #ffb3cc;
-      font-size: 25px;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.6);
-      transition: all 0.8s ease;
+  background-color: #ffb3cc;
+  font-size: 18px; /* smaller font */
+  padding: 10px 20px; /* smaller padding */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.6);
+  transition: all 0.8s ease;
     }
+.btn-lower {
+  margin-top: 40px;
+}
     .btn:hover {
       background-color: #ff80bf;
       transform: scale(1.1);
@@ -56,15 +59,21 @@ ui <- fluidPage(
     }
     .question-container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      margin-top: 30px;
+      align-items: flex-start;
+      gap: 60px;
+      margin-top: 20px;
     }
-    .question-container > div {
-      margin: 10px 0;
+    .question-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 400px;
     }
-    /* Smooth page transition */
+    .question-box {
+      width: 300px;
+      margin: 0 auto;
+    }
     .fade-enter {
       opacity: 0;
       transform: translateY(20px);
@@ -83,11 +92,14 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   current_page <- reactiveVal(1)
+  selected_questions <- reactiveVal(NULL)
 
-  selected_questions <- reactive({
-    lapply(personality_data, function(x) {
-      sample(x$questions, 1)
-    })
+  observe({
+    question_list <- unlist(
+      lapply(personality_data, function(x) sample(x$questions, 2)),
+      use.names = FALSE
+    )
+    selected_questions(question_list)
   })
 
   output$page_ui <- renderUI({
@@ -105,17 +117,33 @@ server <- function(input, output, session) {
     }
 
     if (page_num == 2) {
+      questions <- selected_questions()
+      left_column <- questions[1:5]
+      right_column <- questions[6:10]
+
       return(
-        div(class = "fade-enter fade-enter-active full-center",
+        div(class = "fade-enter fade-enter-active content",
             div(class = "container",
                 h3("Answer some questions for us to get to know you better!🩷"),
-                lapply(selected_questions(), function(q) {
-                  q_id <- gsub(" ", "_", q)
-                  div(
-                    radioButtons(inputId = q_id, label = q, choices = c("Yes", "No"), selected = NULL)
-                  )
-                }),
-                actionButton("next_btn", "Next", class = "btn")
+                div(class = "question-container",
+                    div(class = "question-column",
+                        lapply(left_column, function(q) {
+                          q_id <- gsub(" ", "_", q)
+                          div(class = "question-box",
+                              radioButtons(inputId = q_id, label = q, choices = c("Yes", "No"))
+                          )
+                        })
+                    ),
+                    div(class = "question-column",
+                        lapply(right_column, function(q) {
+                          q_id <- gsub(" ", "_", q)
+                          div(class = "question-box",
+                              radioButtons(inputId = q_id, label = q, choices = c("Yes", "No"))
+                          )
+                        })
+                    )
+                ),
+                div(class = "btn-lower", actionButton("next_btn", "Next", class = "btn"))
             )
         )
       )
@@ -170,13 +198,4 @@ server <- function(input, output, session) {
 
 # Run the Shiny app
 shinyApp(ui = ui, server = server)
-
-
-
-
-
-
-
-
-
 
