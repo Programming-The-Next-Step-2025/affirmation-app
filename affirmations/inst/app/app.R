@@ -163,9 +163,9 @@ server <- function(input, output, session) {
                 h3(paste("Your personality today is:", gsub("_", " ", selected_personality))),
                 div(class = "results", p(paragraph)),
                 div(class = "affirmation",
-                    span(class = "affirmation-emoji", "✨"),
+                    span(class = "affirmation-emoji", " "),
                     p(affirmation),
-                    span(class = "affirmation-emoji", "✨")
+                    span(class = "affirmation-emoji", " ")
                 )
             )
         )
