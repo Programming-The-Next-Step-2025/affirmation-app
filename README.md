@@ -3,6 +3,6 @@ This package will be developed into a Shiny app that delivers personalized affir
 
 ## Idea
 
-- Users answer 3–5 simple questions.
+- Users answer 10 simple questions.
 - Based on their answers, they get a slaying motivational message.
 - Made using R and Shiny.
