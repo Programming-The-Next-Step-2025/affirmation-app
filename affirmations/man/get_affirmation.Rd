@@ -6,6 +6,24 @@
 \usage{
 get_affirmation()
 }
+\value{
+Launches the Shiny app in the default web browser. Does not return a value.
+}
 \description{
-This function launches the full Shiny app included in the affirmations package.
+This function launches the interactive Shiny application included in the
+`affirmations` package. The app presents users with a fun personality quiz
+and returns a personalized affirmation based on their responses.
+}
+\details{
+This is the main entry point for users who want to interact with the app
+in a browser interface. It checks for the existence of the app directory
+within the installed package and then starts the app using `shiny::runApp()`.
+}
+\examples{
+# Launch the app (only works if the affirmations package is installed)
+get_affirmation()
+
+}
+\seealso{
+[shiny::runApp()]
 }
