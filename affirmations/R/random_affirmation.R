@@ -6,6 +6,7 @@
 #'
 #' @return A character string containing a randomly selected affirmation.
 #' @examples
+#' library(affirmations)
 #' random_affirmation()
 #' @export
 random_affirmation <- function() {

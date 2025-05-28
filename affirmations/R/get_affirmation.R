@@ -10,7 +10,7 @@
 #'
 #' @return Launches the Shiny app in the default web browser. Does not return a value.
 #' @examples
-#' # Launch the app (only works if the affirmations package is installed)
+#' # Launch the app (“Run Examples” pane do not support interactive functions well, use the console or the source pane)
 #' get_affirmation()
 #'
 #' @seealso [shiny::runApp()]

@@ -15,5 +15,6 @@ from the full set of affirmations across all personality types
 in the `personality_data` list.
 }
 \examples{
+library(affirmations)
 random_affirmation()
 }

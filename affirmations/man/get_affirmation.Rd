@@ -20,7 +20,7 @@ in a browser interface. It checks for the existence of the app directory
 within the installed package and then starts the app using `shiny::runApp()`.
 }
 \examples{
-# Launch the app (only works if the affirmations package is installed)
+# Launch the app (“Run Examples” pane do not support interactive functions well, use the console or the source pane)
 get_affirmation()
 
 }

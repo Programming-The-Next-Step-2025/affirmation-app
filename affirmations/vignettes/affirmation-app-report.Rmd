@@ -38,7 +38,7 @@ Currently, the app supports five personality types:
 
 Each personality includes:
 
-* 2 specific classification questions (10 total)
+* A pool of specific classification questions (around 10 for each)
 * A randomized affirmation bank with 10–15 custom entries per type
 
 ---
